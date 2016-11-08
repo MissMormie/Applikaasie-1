@@ -10,11 +10,13 @@ package com.boerpiet.domeinApp;
  * @author Peaq
  */
 public class OrderArticle {
+    private int bestelArtikel;
     private int aantal;
     private int bestelId;
     private int artikelId;
     
-    OrderArticle (int aantal, int bestelId, int artikelId) {
+    OrderArticle (int bestelArtikel, int aantal, int bestelId, int artikelId) {
+        this.bestelArtikel = bestelArtikel;
         this.aantal = aantal;
         this.bestelId = bestelId;
         this.artikelId = artikelId;

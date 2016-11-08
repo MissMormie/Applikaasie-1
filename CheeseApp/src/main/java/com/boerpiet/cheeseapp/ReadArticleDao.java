@@ -10,15 +10,15 @@ import java.sql.*;
  *
  * @author Peaq
  */
-public class ReadArticleDao extends Article {
+public class ReadArticleDao {
     private Connector conn = new Connector();
     
     Article getArticle (int id) throws SQLException {
         //class die ReadArticleDao.getArticle aanroept moet (scanner)input
         //toekennen aan id paramater van deze methode
         Article a = new Article();
-        String queryString = "select * from Article" + "where Article.id = "+id;
-        if (id>=0) {
+        String queryString = "SELECT * FROM Artikel" + "WHERE ArtikelId = "+id;
+        if (id>=0) {// moet nog <= max value Artikel.id in database bijkomen
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(queryString)){
             prepStatement.setInt(1, id);   //Weet niet zeker of dit nodig is
@@ -29,9 +29,9 @@ public class ReadArticleDao extends Article {
             // moet rs ook gesloten worden?
             
             if (rs != null){
-            a.naam = rs.getString(2);
-            a.prijs = rs.getDouble(3);
-            a.voorraad = rs.getInt(4);
+            a.setNaam (rs.getString(2));
+            a.setPrijs (rs.getDouble(3));
+            a.setVoorraad (rs.getInt(4));
             }
             else {
                 System.out.println("Geen artikelen in de database");

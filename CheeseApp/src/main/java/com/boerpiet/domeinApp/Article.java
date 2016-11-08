@@ -10,10 +10,10 @@ package com.boerpiet.domeinApp;
  * @author Peaq
  */
 public class Article {
-    protected int id;  // deze variabelen zouden m.i. protected moeten zijn met subclass
-    protected String naam; // ReadArticleDao maar netbeans herkent de protected status niet
-    protected double prijs;
-    protected int voorraad;
+    private int id;
+    private String naam;
+    private double prijs;
+    private int voorraad;
     
     public Article (){};
     public Article (int id, String naam, double prijs, int voorraad) {
