@@ -24,7 +24,6 @@ public class DeleteArticleDao {
         if (id>=0) {// moet nog <= max value idArtikel in database bijkomen
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(deleteString)){
-            
             // eventueel nog een bevestiging vragen van user voor deletion?
             
             prepStatement.executeUpdate ();
