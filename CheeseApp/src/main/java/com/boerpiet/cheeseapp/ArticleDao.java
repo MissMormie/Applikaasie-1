@@ -18,7 +18,12 @@ public class ArticleDao {
         String queryString = "select * from Article" + "where Article.id = ?";
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(queryString)){
+            prepStatement.setInt(1, a.id);
+            prepStatement.setString(2, a.naam);
+            prepStatement.setDouble(3, a.prijs);
+            prepStatement.setInt (4, a.voorraad);
             ResultSet rs = prepStatement.executeQuery();
+            
             if (rs != null){
             a.naam = rs.getString(2);
             a.prijs = rs.getDouble(3);
