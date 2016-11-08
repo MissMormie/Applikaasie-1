@@ -7,21 +7,20 @@ package com.boerpiet.cheeseapp;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  *
  * @author Peaq
  */
-public class DeleteArticleDao {
+public class DeleteOrderDao {
     private Connector conn = new Connector ();
     
     void delete (int id) throws SQLException {
-        //class die DeletArticleDao.delete aanroept moet (scanner)input
+        //class die DeleteOrderDao.delete aanroept moet (scanner)input
         //toekennen aan id paramater van deze methode
-        String deleteString = "DELETE * FROM Artikel" + "WHERE ArtikelId = "+id;
-        if (id>=0) {// moet nog <= max value idArtikel in database bijkomen
+        String deleteString = "DELETE * FROM Bestelling" + "WHERE idBestelling = "+id;
+        if (id>=0) {// moet nog <= max value idBestelling in database bijkomen
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(deleteString)){
             
@@ -34,7 +33,7 @@ public class DeleteArticleDao {
         }
         
             else {
-                System.out.println("Artikel niet gevonden in de database");
+                System.out.println("Bestelling niet gevonden in de database");
             }
         }
-    } 
+    }

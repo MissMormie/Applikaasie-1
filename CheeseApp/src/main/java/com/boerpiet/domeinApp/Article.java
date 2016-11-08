@@ -14,13 +14,15 @@ public class Article {
     private String naam;
     private double prijs;
     private int voorraad;
+    private boolean deleted;
     
     public Article (){};
-    public Article (int id, String naam, double prijs, int voorraad) {
+    public Article (int id, String naam, double prijs, int voorraad, boolean deleted) {
         this.id = id;
         this.naam = naam;
         this.prijs = prijs;
         this.voorraad = voorraad;
+        this.deleted = deleted;
     }
     
     public int getId () {
@@ -43,5 +45,11 @@ public class Article {
     }
     public void setVoorraad (int voorraad) {
         this.voorraad = voorraad;
+    }
+    public boolean getDeleted () {
+        return deleted;
+    }
+    public void setDeleted (boolean deleted) {
+        this.deleted = deleted;
     }
 }

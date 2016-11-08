@@ -22,9 +22,9 @@ public class ReadArticleDao {
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(queryString)){
             prepStatement.setInt(1, id);   //Weet niet zeker of dit nodig is
-            //prepStatement.setString(2, a.naam); // hoe krijg ik hier de gegevens uit de db?
-            //prepStatement.setDouble(3, a.prijs);
-            //prepStatement.setInt (4, a.voorraad);
+            //prepStatement.setString(2, ?a.naam); // hoe krijg ik hier de gegevens uit de db?
+            //prepStatement.setDouble(3, ?a.prijs);
+            //prepStatement.setInt (4, ?a.voorraad);
             ResultSet rs = prepStatement.executeQuery();
             // moet rs ook gesloten worden?
             

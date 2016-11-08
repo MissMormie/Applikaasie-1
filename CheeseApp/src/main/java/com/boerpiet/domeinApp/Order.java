@@ -5,6 +5,7 @@
  */
 package com.boerpiet.domeinApp;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 /**
@@ -16,12 +17,15 @@ public class Order {
     private int klant;
     private LocalDate bestelDatum;
     private int account;
+    private boolean deleted;
     
-    Order (int id, int klant, LocalDate bestelDatum, int account) {
+    public Order() {};
+    public Order (int id, int klant, LocalDate bestelDatum, int account, boolean deleted) {
         this.id = id;
         this.klant = klant;
         this.bestelDatum = bestelDatum;
         this.account = account;
+        this.deleted = deleted;
     }
     
     public int getId (){
@@ -36,7 +40,13 @@ public class Order {
     public int getAccount () {
         return account;
     }
-    public void setbestelDatum (LocalDate bestelDatum) {
+    public void setBestelDatum (LocalDate bestelDatum) {
         this.bestelDatum = bestelDatum;
+    }
+    public boolean getDeleted () {
+        return deleted;
+    }
+    public void setDeleted (boolean deleted) {
+        this.deleted = deleted;
     }
 }

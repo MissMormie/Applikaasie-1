@@ -10,16 +10,19 @@ package com.boerpiet.domeinApp;
  * @author Peaq
  */
 public class OrderArticle {
-    private int bestelArtikel;
+    private int id;
     private int aantal;
     private int bestelId;
     private int artikelId;
+    private boolean deleted;
     
-    OrderArticle (int bestelArtikel, int aantal, int bestelId, int artikelId) {
-        this.bestelArtikel = bestelArtikel;
+    public OrderArticle (){};
+    public OrderArticle (int id, int aantal, int bestelId, int artikelId, boolean deleted) {
+        this.id = id;
         this.aantal = aantal;
         this.bestelId = bestelId;
         this.artikelId = artikelId;
+        this.deleted = deleted;
     }
     
     public int getAantal () {
@@ -33,5 +36,11 @@ public class OrderArticle {
     }
     public int getArtikelId () {
         return artikelId;
+    }
+    public boolean getDeleted () {
+        return deleted;
+    }
+    public void setDeleted (boolean deleted) {
+        this.deleted = deleted;
     }
 }
