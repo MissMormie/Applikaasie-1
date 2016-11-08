@@ -4,25 +4,29 @@
  * and open the template in the editor.
  */
 package com.boerpiet.cheeseapp;
+import com.boerpiet.domeinApp.Article;
 import java.sql.*;
 /**
  *
  * @author Peaq
  */
-public class ArticleDao {
-        //private PreparedStatement prepStatement;
+public class ReadArticleDao extends Article {
     private Connector conn = new Connector();
     
     Article getArticle (int id) throws SQLException {
+        //class die ReadArticleDao.getArticle aanroept moet (scanner)input
+        //toekennen aan id paramater van deze methode
         Article a = new Article();
-        String queryString = "select * from Article" + "where Article.id = ?";
+        String queryString = "select * from Article" + "where Article.id = "+id;
+        if (id>=0) {
         try (Connection artikelCon = conn.getConnection();
                 PreparedStatement prepStatement = artikelCon.prepareStatement(queryString)){
-            prepStatement.setInt(1, a.id);
-            prepStatement.setString(2, a.naam);
-            prepStatement.setDouble(3, a.prijs);
-            prepStatement.setInt (4, a.voorraad);
+            prepStatement.setInt(1, id);   //Weet niet zeker of dit nodig is
+            //prepStatement.setString(2, a.naam); // hoe krijg ik hier de gegevens uit de db?
+            //prepStatement.setDouble(3, a.prijs);
+            //prepStatement.setInt (4, a.voorraad);
             ResultSet rs = prepStatement.executeQuery();
+            // moet rs ook gesloten worden?
             
             if (rs != null){
             a.naam = rs.getString(2);
@@ -36,6 +40,6 @@ public class ArticleDao {
         catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return a;
-    }    
+    } return a;
+  }
 }

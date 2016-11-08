@@ -3,24 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.boerpiet.cheeseapp;
+package com.boerpiet.domeinApp;
 
 /**
  *
  * @author Peaq
  */
 public class Article {
-    int id;
-    String naam;
-    double prijs;
-    int voorraad;
+    protected int id;  // deze variabelen zouden m.i. protected moeten zijn met subclass
+    protected String naam; // ReadArticleDao maar netbeans herkent de protected status niet
+    protected double prijs;
+    protected int voorraad;
     
-    //Artikel (int id, String naam, double prijs, int voorraad) {
-      //  this.id = id;
-        //this.naam = naam;
-       // this.prijs = prijs;
-       // this.voorraad = voorraad;
-   // }
+    public Article (){};
+    public Article (int id, String naam, double prijs, int voorraad) {
+        this.id = id;
+        this.naam = naam;
+        this.prijs = prijs;
+        this.voorraad = voorraad;
+    }
     
     public int getId () {
         return id;
